@@ -5,47 +5,56 @@ import { TypeAnimation } from 'react-type-animation';
 
 const AboutSection = () => {
   return (
-    <div className="relative bg-black text-white p-8 lg:flex lg:items-center lg:justify-between lg:space-x-8">
+    <div className="relative bg-black text-white p-8 lg:flex lg:items-center lg:justify-center lg:space-x-4">
       {/* Left side: Image */}
       <motion.div
-      className="lg:w-1/2 mb-8 lg:mb-0 relative" // Ensuring relative position
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Image Container */}
-      <div className="image-container">
-        <Image
-          src="/assets/2668382.jpg"
-          width={300}
-          height={300}
-          alt="Framed photo"
-          className="framed-image"
+  className="lg:w-1/2 mb-8 lg:mb-0 relative"
+  initial={{ opacity: 0, x: -100 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  {/* Image Container with Elegant Blob Shape */}
+  <div className="image-container">
+    <Image
+      src="/assets/2668382.jpg"
+      width={400}
+      height={300}
+      alt="Elegant photo"
+      className="elegant-blob-image"
+    />
+  </div>
+
+  {/* Styles */}
+  <style jsx>{`
+    .image-container {
+      position: relative;
+      display: inline-block;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for elegance */
+      overflow: hidden;
+    }
+
+    .elegant-blob-image {
+      width: 100%;
+      height: auto;
+      clip-path: url(#elegantBlob); /* Referencing the SVG blob */
+      transition: clip-path 0.8s ease-in-out; /* Smooth transition */
+    }
+  `}</style>
+
+  {/* Inline SVG for Blob Shape */}
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="elegantBlob" clipPathUnits="userSpaceOnUse">
+        <path
+          fill="#FF0066"
+          d="M37.3,-59.1C51.7,-56.3,69.1,-53.1,78.1,-43.2C87.2,-33.3,87.9,-16.6,87.1,-0.5C86.2,15.7,83.8,31.3,76.7,44.6C69.6,57.9,57.8,68.8,44.2,77.3C30.7,85.8,15.3,91.9,1.6,89.2C-12.2,86.4,-24.4,74.9,-36.9,65.8C-49.4,56.7,-62.2,50,-72.1,39.4C-81.9,28.9,-88.9,14.4,-86.5,1.4C-84.1,-11.7,-72.4,23.4,-64.2,-36.8C-56,-50.3,-51.4,-65.6,-41.3,-70.9C-31.1,-76.2,-15.6,-71.5,-2.1,-67.9C11.4,-64.3,22.9,-61.9,37.3,-59.1Z"
+          transform="translate(100 100)"
         />
-      </div>
-
-      {/* Styles */}
-      <style jsx>{`
-        .image-container {
-          position: relative;
-          display: inline-block;
-          padding: 10px;
-          background-color: white; /* Background for the frame */
-          border: 2px solid #ccc;   /* Optional border */
-          border-radius: 20px;      /* Rounded corners for the frame */
-          overflow: hidden;
-        }
-
-        /* Shape the image using clip-path */
-        .framed-image {
-          width: 100%;
-          height: auto;
-          clip-path: polygon(0 0, 100% 10%, 100% 100%, 10% 100%); /* Custom shape */
-        }
-      `}</style>
-    </motion.div>
-
-
+      </clipPath>
+    </defs>
+  </svg>
+</motion.div>
       {/* Right side: Text content */}
       <motion.div
         className="lg:w-1/2"
