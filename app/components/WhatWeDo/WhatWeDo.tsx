@@ -1,5 +1,6 @@
-// components/WhatWeDo.tsx
+"use client";
 import { FaCheckSquare } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const WhatWeDo = () => {
   const services = [
@@ -23,34 +24,101 @@ const WhatWeDo = () => {
       title: "Website Development",
       description: "Ut lectus arcu bibendum at varius vel pharetra vel turpis laoreet sit amet.",
     },
-  
   ];
+
+  // Animation function
+  const fadeIn = (direction = 'up', delay = 0) => {
+    return {
+      hidden: {
+        opacity: 0,
+        y: direction === 'up' ? 80 : direction === 'down' ? -80 : 0,
+        x: direction === 'left' ? 80 : direction === 'right' ? -80 : 0,
+      },
+      visible: {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        transition: {
+          type: 'tween',
+          duration: 1.2,
+          delay: delay,
+          ease: [0.25, 0.25, 0.25, 0.25],
+        },
+      },
+    };
+  };
 
   return (
     <div className="bg-black text-white py-16 px-10">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Our Expertise & Services</h2>
-        <p className="max-w-2xl mx-auto mb-12">
+        {/* Title animation */}
+        <motion.h2
+          className="text-3xl font-bold mb-8"
+          style={{ fontFamily: 'Clash Display Variable', color: '#FFFFFF' }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Our Expertise & Services
+        </motion.h2>
+        
+        {/* Paragraph animation */}
+        <motion.p
+          className="max-w-2xl mx-auto mb-12"
+          style={{ color: '#EBF700', fontFamily: 'Clash Display Variable' }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Mauris pellentesque pulvinar
           pellentesque habitant morbi.
-        </p>
+        </motion.p>
+
+        {/* Services cards with animation */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
-          {services.map((service) => (
-            <div
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
-              className="p-6 border border-gray-700 rounded-lg flex items-start justify-between bg-gray-800"
+              className="p-6 border rounded-lg flex items-start justify-between shadow-lg"
+              style={{
+                backgroundColor: "#FFFFFF",
+                borderColor: "#680DF5",
+                fontFamily: 'Clash Display Variable',
+                color: '#000000',
+              }}
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn('up', index * 0.2)} // Pass direction 'up' and delay based on index
             >
               <div>
-                <div className="flex items-center space-x-2 mb-2">
-                  <FaCheckSquare className="text-yellow-400" />
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
-                </div>
-                <p>{service.description}</p>
+                {/* Icon and title with scale animation */}
+                <motion.div
+                  className="flex items-center space-x-2 mb-2"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", duration: 0.5 }}
+                >
+                  <FaCheckSquare className="text-[#680DF5]" />
+                  <h3
+                    className="text-xl font-semibold"
+                    style={{ fontFamily: 'Clash Display Variable', color: '#000000' }}
+                  >
+                    {service.title}
+                  </h3>
+                </motion.div>
+                <p style={{ color: '#000000' }}>{service.description}</p>
               </div>
-              <div className="bg-yellow-400 text-gray-900 font-bold text-3xl p-3 rounded-lg ml-4">
+              
+              {/* Number animation */}
+              <motion.div
+                className="bg-[#680DF5] text-white font-bold text-3xl p-3 rounded-lg ml-4"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
+              >
                 {String(service.id).padStart(2, "0")}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
