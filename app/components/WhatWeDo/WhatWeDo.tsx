@@ -40,7 +40,7 @@ const WhatWeDo = () => {
         x: 0,
         transition: {
           type: 'tween',
-          duration: 1.2,
+          duration: 2.2,
           delay: delay,
           ease: [0.25, 0.25, 0.25, 0.25],
         },
@@ -51,27 +51,15 @@ const WhatWeDo = () => {
   return (
     <div className="bg-black text-white py-16 px-10">
       <div className="container mx-auto text-center">
-        {/* Title animation */}
-        <motion.h2
-          className="text-3xl font-bold mb-8"
-          style={{ fontFamily: 'Clash Display Variable', color: '#FFFFFF' }}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+  
+        <motion.h2 className="text-3xl font-bold mb-8" style={{fontFamily:'Clash Display Variable', color:'#FFFFFF'}} initial={{opacity:0, y: -20}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
           Our Expertise & Services
         </motion.h2>
         
-        {/* Paragraph animation */}
-        <motion.p
-          className="max-w-2xl mx-auto mb-12"
-          style={{ color: '#EBF700', fontFamily: 'Clash Display Variable' }}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Mauris pellentesque pulvinar
-          pellentesque habitant morbi.
+    
+  <motion.p className="max-w-2xl mx-auto mb-12" style={{color:'#EBF700', fontFamily:'Clash Display Variable'}} initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} transition={{duration:0.6, delay:0.3}}>
+        Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Mauris pellentesque pulvinar
+      pellentesque habitant morbi.
         </motion.p>
 
         {/* Services cards with animation */}
@@ -79,16 +67,11 @@ const WhatWeDo = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="p-6 border rounded-lg flex items-start justify-between shadow-lg"
-              style={{
-                backgroundColor: "#FFFFFF",
-                borderColor: "#680DF5",
-                fontFamily: 'Clash Display Variable',
-                color: '#000000',
-              }}
+              className="p-6 border rounded-lg flex items-start jusitfy-between shadow-lg"
+              style={{backgroundColor:"#FFFFFF", borderColor:"#680DF5",fontFamily:"Clash Display Variable",color:"000000"}}
               initial="hidden"
               animate="visible"
-              variants={fadeIn('up', index * 0.2)} // Pass direction 'up' and delay based on index
+              variants={fadeIn('up', index*0.4)}
             >
               <div>
                 {/* Icon and title with scale animation */}

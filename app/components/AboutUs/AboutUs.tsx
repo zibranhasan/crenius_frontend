@@ -17,8 +17,8 @@ const AboutSection = () => {
   <div className="image-container">
     <Image
       src="/assets/2668382.jpg"
-      width={400}
-      height={300}
+      width={350}
+      height={250}
       alt="Elegant photo"
       className="elegant-blob-image"
     />
@@ -55,6 +55,9 @@ const AboutSection = () => {
     </defs>
   </svg>
 </motion.div>
+
+
+
       {/* Right side: Text content */}
       <motion.div
         className="lg:w-1/2"
