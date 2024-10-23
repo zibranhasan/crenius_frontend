@@ -23,7 +23,6 @@ const AboutSection = () => {
       className="elegant-blob-image"
     />
   </div>
-
   {/* Styles */}
   <style jsx>{`
     .image-container {
@@ -33,7 +32,6 @@ const AboutSection = () => {
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for elegance */
       overflow: hidden;
     }
-
     .elegant-blob-image {
       width: 100%;
       height: auto;
@@ -41,7 +39,6 @@ const AboutSection = () => {
       transition: clip-path 0.8s ease-in-out; /* Smooth transition */
     }
   `}</style>
-
   {/* Inline SVG for Blob Shape */}
   <svg width="0" height="0">
     <defs>
@@ -55,9 +52,6 @@ const AboutSection = () => {
     </defs>
   </svg>
 </motion.div>
-
-
-
       {/* Right side: Text content */}
       <motion.div
         className="lg:w-1/2"
@@ -90,15 +84,7 @@ const AboutSection = () => {
     <span className="text-[#EBF700] font-bold">Contact us today</span> to explore how we can help you grow.
   </p>
 </div>
-
-
-
-
-
         {/* Dynamic TypeAnimation Section */}
-        
-
-     
       </motion.div>
 
       {/* Experience Box */}
