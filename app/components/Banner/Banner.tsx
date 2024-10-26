@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
 
-const fadeIn = (direction, delay) =>{
+const fadeIn = (direction: string, delay: number) =>{
     return {
         hidden:{
             y:direction === 'up'?80 : direction === 'down' ? -80 : 0,

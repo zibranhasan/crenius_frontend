@@ -4,11 +4,15 @@ import { motion } from 'framer-motion';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import Image from 'next/image';
 
-const faqItems = [
-  { question: 'What is business consulting?', answer: 'Business consulting provides expert advice to businesses to help them improve efficiency and performance.' },
-  { question: 'How do I choose the right business consultant?', answer: 'Look for consultants with experience in your industry, a good track record, and excellent communication skills.' },
-  { question: 'How long do consulting projects typically last?', answer: 'It varies based on the scope of the project, but most last between 3 to 6 months.' },
-  { question: 'Are consulting services confidential?', answer: 'Yes, consultants follow strict confidentiality agreements to protect your business information.' }
+// Sample FAQs divided into two categories
+const adEspressoFaqs = [
+  { question: 'How do I pay for my online advertising?', answer: 'You can pay for online advertising through various methods including credit card, PayPal, and wire transfer.' },
+  { question: 'What happens to my campaigns if I cancel my AdEspresso subscription?', answer: 'Your campaigns will pause, but you can reactivate them by resubscribing.' }
+];
+
+const onlineAdvertisingFaqs = [
+  { question: 'Do I need a website to run Facebook ads?', answer: 'No, you can run Facebook ads without a website, but having one improves your ad performance.' },
+  { question: 'What is the minimum budget I can use to run Facebook ads?', answer: 'The minimum budget depends on the objective, but typically starts at $1 per day.' }
 ];
 
 const FaqSection = () => {
@@ -19,83 +23,106 @@ const FaqSection = () => {
   };
 
   return (
-    <div className="bg-[#000000] text-white p-10">
-    <div className="container mx-auto flex flex-col md:flex-row justify-between items-start gap-6 px-4">
-      {/* FAQ Title and Downloads */}
-      <div className="md:w-1/3">
-        <h2 className="text-4xl font-bold mb-4 font-ClashDisplay">
-          Frequently asked questions.
-        </h2>
-        <p className="text-[#EBF700] mb-4">
-          Posuere urna nec tincidunt praesent semper. At urna condimentum mattis pellentesque id nibh tortor id senectus et netus et malesuada.
-        </p>
-        <div className="mt-6">
-          <h3 className="text-lg mb-3">Download & Open with pdf</h3>
-          <ul className="space-y-2">
-            <li className="flex items-center">
-              <span className="text-[#EBF700] mr-2">🟡</span> Beginner and tutorial
-            </li>
-            <li className="flex items-center">
-              <span className="text-[#EBF700] mr-2">🟡</span> Conditions for joining
-            </li>
-            <li className="flex items-center">
-              <span className="text-[#EBF700] mr-2">🟡</span> Early history of zeroxe company
-            </li>
-            <li className="flex items-center">
-              <span className="text-[#EBF700] mr-2">🟡</span> What my services are available
-            </li>
-          </ul>
+    <div className="bg-black text-gray-800 py-10">
+      <div className="container mx-auto">
+          {/* Image Section */}
+    <div className="flex justify-center mb-8">
+      <Image
+        src="/assets/FAQ.jpg" // Update this with your image path
+        alt="FAQ image"
+        width={500}
+        height={300}
+        className="rounded-lg shadow-lg"
+      />
+    </div>
+        {/* Header Section */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold mb-2">Do You Have Questions?</h2>
+          <p className="text-lg text-gray-600">We have answers (well, most of the times!)</p>
+          <p className="mt-2">Below you'll find answers to the most common questions. If you still can’t find the answer you’re looking for, just <a href="#" className="text-blue-600 underline">Contact us!</a></p>
+        </div>
+        <div className="flex flex-col md:flex-row justify-between gap-8 px-4">
+          {/* AdEspresso FAQs */}
+          <div className="md:w-1/2">
+          
+            <h3 className="text-2xl font-semibold mb-6">AdEspresso FAQs</h3>
+            {adEspressoFaqs.map((item, index) => (
+              <motion.div
+                key={index}
+                className="mb-4 bg-gray-100 p-4 rounded-md shadow"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div
+                  className="flex justify-between items-center cursor-pointer"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex items-center">
+                    <span className="mr-2 text-blue-600">{index + 1}</span>
+                    <h4 className="text-lg font-medium">{item.question}</h4>
+                  </div>
+                  {openIndex === index ? (
+                    <AiOutlineMinus className="text-xl text-blue-600" />
+                  ) : (
+                    <AiOutlinePlus className="text-xl text-blue-600" />
+                  )}
+                </div>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "auto" }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-2"
+                  >
+                    <p>{item.answer}</p>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Online Advertising FAQs */}
+          <div className="md:w-1/2">
+            <h3 className="text-2xl font-semibold mb-6">Online Advertising FAQs</h3>
+            {onlineAdvertisingFaqs.map((item, index) => (
+              <motion.div
+                key={index}
+                className="mb-4 bg-gray-100 p-4 rounded-md shadow"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div
+                  className="flex justify-between items-center cursor-pointer"
+                  onClick={() => toggleFaq(index + adEspressoFaqs.length)}
+                >
+                  <div className="flex items-center">
+                    <span className="mr-2 text-blue-600">{index + 1}</span>
+                    <h4 className="text-lg font-medium">{item.question}</h4>
+                  </div>
+                  {openIndex === index + adEspressoFaqs.length ? (
+                    <AiOutlineMinus className="text-xl text-blue-600" />
+                  ) : (
+                    <AiOutlinePlus className="text-xl text-blue-600" />
+                  )}
+                </div>
+                {openIndex === index + adEspressoFaqs.length && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "auto" }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-2"
+                  >
+                    <p>{item.answer}</p>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-  
-      {/* Image in the middle */}
-      <div className="md:w-1/3 flex justify-center items-center min-h-[400px]">
-        <Image
-          src="/assets/FAQ.jpg"
-          height={1900}
-          width={900}
-          alt="Consultant"
-          className="w-full h-auto rounded-lg shadow-lg"
-        />
-      </div>
-  
-      {/* FAQ Accordion */}
-      <div className="md:w-1/3">
-        {faqItems.map((item, index) => (
-          <motion.div
-            key={index}
-            className="mb-4 bg-[#1a1a1a] p-4 rounded-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div
-              className="flex justify-between items-center cursor-pointer"
-              onClick={() => toggleFaq(index)}
-            >
-              <h4 className="text-lg font-medium">{item.question}</h4>
-              {openIndex === index ? (
-                <AiOutlineMinus className="text-xl text-[#EBF700]" />
-              ) : (
-                <AiOutlinePlus className="text-xl text-[#EBF700]" />
-              )}
-            </div>
-            {openIndex === index && (
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: "auto" }}
-                transition={{ duration: 0.3 }}
-                className="mt-2"
-              >
-                <p>{item.answer}</p>
-              </motion.div>
-            )}
-          </motion.div>
-        ))}
-      </div>
     </div>
-  </div>
-  
   );
 };
 
