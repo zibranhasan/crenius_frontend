@@ -1,6 +1,6 @@
-"use client"
-import React, { useState } from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,15 +12,21 @@ const Navbar = () => {
 
   return (
     <nav
-      style={{ backgroundColor: '#000000', height: '4rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-      className="bg-black text-white"
+      style={{
+        backgroundColor: "#000000",
+        height: "4rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      className="bg-black text-white p-10"
     >
-      <div className="container mx-auto flex items-center justify-between p-4">
+      <div className="container mx-auto flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center w-22 h-12">
           <Image
             src="/assets/logo white (1).svg"
-            alt="Zeroxe Logo"
+            alt="Crenius Logo"
             width={195}
             height={195}
             className="m-0 p-0 block" // Ensure it's a block-level element to avoid spacing
@@ -43,33 +49,6 @@ const Navbar = () => {
           </div>
           <div className="group relative">
             <button className="hover:text-yellow-300">NEWS & ARTICLE</button>
-          </div>
-        </div>
-
-        {/* Right: Contact Info */}
-        <div className="hidden md:flex items-center space-x-2 bg-gray-700 p-2 rounded-lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6 text-yellow-300"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.25 12a9.75 9.75 0 1119.5 0 9.75 9.75 0 01-19.5 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 9.75v-3h-7.5v3m7.5 0h-7.5m0 6v3h7.5v-3m-7.5 0h7.5"
-            />
-          </svg>
-          <div className="flex flex-col">
-            <span className="text-sm">Call anytime</span>
-            <span className="text-yellow-300 font-semibold">(+880) - 1234 - 234</span>
           </div>
         </div>
 
@@ -101,11 +80,36 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className="flex flex-col space-y-2 p-4 bg-gray-800">
-            <button className="hover:text-yellow-300" onClick={toggleMobileMenu}>HOME</button>
-            <button className="hover:text-yellow-300" onClick={toggleMobileMenu}>PAGE</button>
-            <button className="hover:text-yellow-300" onClick={toggleMobileMenu}>SERVICES</button>
-            <button className="hover:text-yellow-300" onClick={toggleMobileMenu}>PROJECT</button>
-            <button className="hover:text-yellow-300" onClick={toggleMobileMenu}>NEWS & ARTICLE</button>
+            <button
+              className="hover:text-yellow-300"
+              onClick={toggleMobileMenu}
+            >
+              HOME
+            </button>
+            <button
+              className="hover:text-yellow-300"
+              onClick={toggleMobileMenu}
+            >
+              PAGE
+            </button>
+            <button
+              className="hover:text-yellow-300"
+              onClick={toggleMobileMenu}
+            >
+              SERVICES
+            </button>
+            <button
+              className="hover:text-yellow-300"
+              onClick={toggleMobileMenu}
+            >
+              PROJECT
+            </button>
+            <button
+              className="hover:text-yellow-300"
+              onClick={toggleMobileMenu}
+            >
+              NEWS & ARTICLE
+            </button>
           </div>
         </div>
       )}

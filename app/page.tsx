@@ -7,11 +7,19 @@ import PrevWorkedSection from "./components/PrevWorkedCoSection/PrevWorkedSectio
 import Projects from "./components/Projects/projects";
 import WhatWeDo from "./components/WhatWeDo/WhatWeDo";
 
-
 const Greeting = () => {
-  return (<div><Navbar/>
-  <Banner/><AboutSection/><WhatWeDo/><PrevWorkedSection/><FaqSection/><Contact/><Projects/></div>
-  )
+  return (
+    <div>
+      <Navbar />
+      <Banner />
+      <AboutSection />
+      <WhatWeDo />
+      <PrevWorkedSection />
+      <FaqSection />
+      <Contact />
+      <Projects />
+    </div>
+  );
 };
 
 export default Greeting;

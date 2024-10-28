@@ -7,22 +7,26 @@ const WhatWeDo = () => {
     {
       id: 1,
       title: "Digital Marketing",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus.",
     },
     {
       id: 2,
       title: "Graphics Design",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus.",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus.",
     },
     {
       id: 3,
       title: "Mobile App Development",
-      description: "Ut lectus arcu bibendum at varius vel pharetra vel turpis laoreet sit amet.",
+      description:
+        "Ut lectus arcu bibendum at varius vel pharetra vel turpis laoreet sit amet.",
     },
     {
       id: 4,
       title: "Website Development",
-      description: "Ut lectus arcu bibendum at varius vel pharetra vel turpis laoreet sit amet.",
+      description:
+        "Ut lectus arcu bibendum at varius vel pharetra vel turpis laoreet sit amet.",
     },
   ];
 
@@ -57,7 +61,7 @@ const WhatWeDo = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: false, amount: 0.5 }} // This makes sure it re-triggers
+          viewport={{ once: false, amount: 0.3 }} // This makes sure it re-triggers
         >
           Our Expertise & Services
         </motion.h2>
@@ -79,7 +83,7 @@ const WhatWeDo = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="p-6 border rounded-lg flex items-start jusitfy-between shadow-lg"
+              className="p-6 border rounded-lg flex items-start justify-between shadow-lg"
               style={{
                 backgroundColor: "#FFFFFF",
                 borderColor: "#680DF5",
@@ -88,7 +92,7 @@ const WhatWeDo = () => {
               }}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.5 }}
+              viewport={{ once: false, amount: 0.3 }}
               variants={fadeIn("up", index * 0.4)}
             >
               <div>
@@ -97,13 +101,16 @@ const WhatWeDo = () => {
                   className="flex items-center space-x-2 mb-2"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ type: "spring", duration: 0.5 }}
-                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ type: "spring", duration: 0.3 }}
+                  viewport={{ once: false, amount: 0.3 }}
                 >
                   <FaCheckSquare className="text-[#680DF5]" />
                   <h3
                     className="text-xl font-semibold"
-                    style={{ fontFamily: "Clash Display Variable", color: "#000000" }}
+                    style={{
+                      fontFamily: "Clash Display Variable",
+                      color: "#000000",
+                    }}
                   >
                     {service.title}
                   </h3>
@@ -116,8 +123,8 @@ const WhatWeDo = () => {
                 className="bg-[#680DF5] text-white font-bold text-3xl p-3 rounded-lg ml-4"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
-                viewport={{ once: false, amount: 0.5 }}
+                transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+                viewport={{ once: false, amount: 0.3 }}
               >
                 {String(service.id).padStart(2, "0")}
               </motion.div>
