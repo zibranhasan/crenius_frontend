@@ -44,8 +44,8 @@ const Banner = () => {
               }}
               className="text-white font-secondary leading-tight lg:text-[50px] text-[30px]"
             >
-              <div className="text-[60px] lg:text-[80px]">CRENIUS</div>
-              <div className="text-[#EBF700] text-[40px] lg:text-[60px]">
+              <div className="text-[50px] lg:text-[70px]">CRENIUS</div>
+              <div className="text-[#EBF700] text-[30px] lg:text-[50px]">
                 UNLOCK DIGITAL EXCELLENCE
               </div>
             </motion.div>
@@ -59,7 +59,7 @@ const Banner = () => {
                 once: false,
                 amount: 0.7,
               }}
-              className="mb-6 text-[28px] lg:text-[48px] font-secondary font-semibold uppercase leading-[1.2] h-auto flex items-center text-white whitespace-nowrap" // Adjusted text size and whitespace to prevent wrapping
+              className="mb-6 text-[20px] lg:text-[40px] font-secondary font-semibold uppercase leading-[1.2] h-auto flex items-center text-white whitespace-nowrap" // Adjusted text size and whitespace to prevent wrapping
             >
               <span className="text-[#680DF5] mr-2">Services Are</span>
               <TypeAnimation
