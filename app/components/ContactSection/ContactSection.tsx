@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-const fadeIn = (direction, delay) => ({
-  hidden: { opacity: 0, y: direction === 'up' ? 20 : 0 },
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fadeIn = (direction: any, delay: any) => ({
+  hidden: { opacity: 0, y: direction === "up" ? 20 : 0 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, delay } },
 });
 
@@ -11,21 +12,22 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleFormSubmit = async (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleFormSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
     const form = e.target;
 
     try {
-      const res = await fetch('https://formspree.io/f/xrgvjbzb', {
-        method: 'POST',
+      const res = await fetch("https://formspree.io/f/xrgvjbzb", {
+        method: "POST",
         body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        headers: { Accept: "application/json" },
       });
 
       if (res.ok) setSubmitted(true);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     } finally {
       setLoading(false);
       form.reset();
@@ -38,20 +40,22 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Heading Section */}
           <motion.div
-            variants={fadeIn('up', 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }} // Trigger each time the section is in view
             className="flex-1"
           >
             <h4 className="text-sm uppercase text-yellow-400 mb-2">Contact</h4>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Let's create something amazing</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Let&apos;s create something amazing
+            </h2>
           </motion.div>
 
           {/* Form Section */}
           <motion.form
             onSubmit={handleFormSubmit}
-            variants={fadeIn('up', 0.4)}
+            variants={fadeIn("up", 0.4)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }} // Trigger each time the section is in view
@@ -82,9 +86,13 @@ const Contact = () => {
               type="submit"
               disabled={loading}
             >
-              {loading ? 'Sending...' : 'Send'}
+              {loading ? "Sending..." : "Send"}
             </button>
-            {submitted && <p className="text-green-400 mt-4">Thank you! Your message has been sent.</p>}
+            {submitted && (
+              <p className="text-green-400 mt-4">
+                Thank you! Your message has been sent.
+              </p>
+            )}
           </motion.form>
         </div>
       </div>

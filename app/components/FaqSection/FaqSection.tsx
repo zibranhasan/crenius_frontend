@@ -1,50 +1,75 @@
-"use client"
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import Image from "next/image";
 
 // Sample FAQs divided into two categories
 const adEspressoFaqs = [
-  { question: 'How do I pay for my online advertising?', answer: 'You can pay for online advertising through various methods including credit card, PayPal, and wire transfer.' },
-  { question: 'What happens to my campaigns if I cancel my AdEspresso subscription?', answer: 'Your campaigns will pause, but you can reactivate them by resubscribing.' }
+  {
+    question: "How do I pay for my online advertising?",
+    answer:
+      "You can pay for online advertising through various methods including credit card, PayPal, and wire transfer.",
+  },
+  {
+    question:
+      "What happens to my campaigns if I cancel my AdEspresso subscription?",
+    answer:
+      "Your campaigns will pause, but you can reactivate them by resubscribing.",
+  },
 ];
 
 const onlineAdvertisingFaqs = [
-  { question: 'Do I need a website to run Facebook ads?', answer: 'No, you can run Facebook ads without a website, but having one improves your ad performance.' },
-  { question: 'What is the minimum budget I can use to run Facebook ads?', answer: 'The minimum budget depends on the objective, but typically starts at $1 per day.' }
+  {
+    question: "Do I need a website to run Facebook ads?",
+    answer:
+      "No, you can run Facebook ads without a website, but having one improves your ad performance.",
+  },
+  {
+    question: "What is the minimum budget I can use to run Facebook ads?",
+    answer:
+      "The minimum budget depends on the objective, but typically starts at $1 per day.",
+  },
 ];
 
 const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleFaq = (index) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const toggleFaq = (index: any) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
     <div className="bg-black text-gray-800 py-10">
       <div className="container mx-auto">
-          {/* Image Section */}
-    <div className="flex justify-center mb-8">
-      <Image
-        src="/assets/FAQ.jpg" // Update this with your image path
-        alt="FAQ image"
-        width={500}
-        height={300}
-        className="rounded-lg shadow-lg"
-      />
-    </div>
+        {/* Image Section */}
+        <div className="flex justify-center mb-8">
+          <Image
+            src="/assets/FAQ.jpg" // Update this with your image path
+            alt="FAQ image"
+            width={500}
+            height={300}
+            className="rounded-lg shadow-lg"
+          />
+        </div>
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-2">Do You Have Questions?</h2>
-          <p className="text-lg text-gray-600">We have answers (well, most of the times!)</p>
-          <p className="mt-2">Below you'll find answers to the most common questions. If you still can’t find the answer you’re looking for, just <a href="#" className="text-blue-600 underline">Contact us!</a></p>
+          <p className="text-lg text-gray-600">
+            We have answers (well, most of the times!)
+          </p>
+          <p className="mt-2">
+            Below you&apos;ll find answers to the most common questions. If you
+            still can’t find the answer you’re looking for, just{" "}
+            <a href="#" className="text-blue-600 underline">
+              Contact us!
+            </a>
+          </p>
         </div>
         <div className="flex flex-col md:flex-row justify-between gap-8 px-4">
           {/* AdEspresso FAQs */}
           <div className="md:w-1/2">
-          
             <h3 className="text-2xl font-semibold mb-6">AdEspresso FAQs</h3>
             {adEspressoFaqs.map((item, index) => (
               <motion.div
@@ -84,7 +109,9 @@ const FaqSection = () => {
 
           {/* Online Advertising FAQs */}
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-6">Online Advertising FAQs</h3>
+            <h3 className="text-2xl font-semibold mb-6">
+              Online Advertising FAQs
+            </h3>
             {onlineAdvertisingFaqs.map((item, index) => (
               <motion.div
                 key={index}

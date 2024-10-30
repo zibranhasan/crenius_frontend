@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export const fadeIn = (direction, delay) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const fadeIn = (direction: any, delay: any) => {
   return {
     hidden: {
       y: direction === "up" ? 80 : direction === "down" ? -80 : 0,
@@ -30,7 +31,6 @@ const Projects = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row gap-x-10">
           <div className="flex-1 flex flex-col gap-y-12 mb-10 lg:mb-0">
-            {/* Car Wash Project */}
             <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
               <div className="group-hover:bg-white/70 w-full h-full absolute z-40 transition-all duration-300"></div>
               <Image
@@ -69,7 +69,6 @@ const Projects = () => {
                     Server Link
                   </a>
                 </div>
-          
               </div>
             </div>
           </div>
@@ -120,7 +119,6 @@ const Projects = () => {
                     Server Link
                   </a>
                 </div>
-                
               </div>
             </div>
 
@@ -163,7 +161,6 @@ const Projects = () => {
                     Client Link
                   </a>
                 </div>
-                
               </div>
             </div>
           </motion.div>
